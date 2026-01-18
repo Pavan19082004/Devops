@@ -10,13 +10,13 @@ pipeline {
             }
         }
 
-        stage('Info') {
-            steps {
-                sh 'echo "Branch: $(git rev-parse --abbrev-ref HEAD)"'
-                sh 'echo "Last commit:"'
-                sh 'git log -1 --oneline'
-            }
-        }
+        stage('Intentional Fail') {
+    steps {
+        sh 'echo "Failing on purpose for Episode 10"'
+        sh 'exit 1'
+    }
+}
+
 
         stage('Success') {
             steps {
